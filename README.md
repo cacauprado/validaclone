@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # my-vue-app
 
 ## Project setup
@@ -22,3 +23,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+=======
+# validaclone
+>>>>>>> 4a2fb51cb65e310c0b2dc2278eaef0d4b7baa29f
