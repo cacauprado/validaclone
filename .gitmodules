@@ -1,0 +1,3 @@
+[submodule "validaclone"]
+    path = validaclone
+    url = https://github.com/cacauprado/validaclone
