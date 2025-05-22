@@ -103,13 +103,12 @@ export default {
   methods: {
     async carregarProjetosDoExcel() {
       try {
-        const response = await fetch('/base_projetos.xlsx');
+        const response = await fetch(`${process.env.BASE_URL}base_projetos.xlsx`);
         const arrayBuffer = await response.arrayBuffer();
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
         const jsonData = XLSX.utils.sheet_to_json(sheet);
-
         const projetosSet = new Set();
         jsonData.forEach(row => {
           if (row['Projeto']) {
