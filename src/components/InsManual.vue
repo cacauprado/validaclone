@@ -240,10 +240,11 @@ export default {
   methods: {
     async carregarProcessosProjetos() {
       try {
-        const response = await fetch('/base_projetos.xlsx');
-        if (!response.ok) {
-          throw new Error(`Erro HTTP: ${response.status} - ${response.statusText}`);
-        }
+      const response = await fetch(`${process.env.BASE_URL}base_projetos.xlsx`);
+      if (!response.ok) {
+      console.error(`Erro HTTP: ${response.status} - ${response.statusText}`);
+      throw new Error(`Erro HTTP: ${response.status} - ${response.statusText}`);
+      }
         const arrayBuffer = await response.arrayBuffer();
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
         const sheetName = workbook.SheetNames[0];
@@ -293,7 +294,7 @@ export default {
    
     executarCalculo() {
   this.calcularTotais(this.dados, this.processosPorProjeto, this.projetosSelecionados, this.mesesSelecionados);
-  this.exibirTotais = true; // Certifique-se que esta linha está presente
+  this.exibirTotais = true;
 },
     baixarBases() {
       try {
